@@ -974,7 +974,131 @@
 
 
     </style>
+    <style>
+/* Добавьте эти стили в ваш существующий CSS */
+@media (max-width: 576px) {
+    /* Герой секция */
+    .hero {
+        min-height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
+        margin-top: 0;
+        padding-top: 60px;
+    }
     
+    .hero-content {
+        padding-top: 40px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+    
+    .btn-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .btn-outline {
+        margin-left: 0;
+    }
+    
+    /* О нас */
+    .stat-item {
+        flex: 1 1 100%;
+        margin-bottom: 20px;
+    }
+    
+    /* Премиум секция */
+    .premium-features {
+        grid-template-columns: 1fr;
+    }
+    
+    /* ТОП-3 */
+    .top-dishes-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    /* Популярные рецепты */
+    .recipe-slider {
+        grid-template-columns: 1fr;
+    }
+    
+    .categories {
+        justify-content: flex-start;
+        padding-bottom: 10px;
+    }
+    
+    /* Подписка */
+    .subscribe-form {
+        padding: 15px;
+    }
+    
+    /* Общие исправления */
+    body {
+        font-size: 14px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.2rem;
+    }
+    
+    /* Исправление для видеофона */
+    .hero-video {
+        object-position: center center;
+    }
+    
+    .premium-section .video-background video {
+        object-position: 50% 50%;
+    }
+}
+
+/* Исправление 100vh для мобильных устройств */
+:root {
+    --vh: 1vh;
+}
+
+.hero {
+    height: calc(var(--vh, 1vh) * 100);
+}
+
+/* Отключаем hover эффекты на тач-устройствах */
+@media (hover: none) {
+    .recipe-card:hover,
+    .feature-card:hover,
+    .category:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+}
+</style>
+
+<script>
+// Исправление 100vh на мобильных устройствах
+function fixVH() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+window.addEventListener('resize', fixVH);
+window.addEventListener('orientationchange', fixVH);
+fixVH();
+</script>
 </head>
 <body>
     <!-- Шапка -->
